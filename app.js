@@ -13,6 +13,13 @@ fetch("./data/destinations.json")
     .then(data => {
         let destinations = data.destinations;
         destinations.forEach(destination => {
+            let destItem = document.createElement('li');
+            destItem.innerHTML = `
+                <h2>${destination.title}</h2>
+                ${destination.title}
+            `;
+            destList.append(destItem);
+            destList.classList.add('listing');
             console.log(destination);
         });
     })

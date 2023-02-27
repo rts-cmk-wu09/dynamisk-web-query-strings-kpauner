@@ -1,0 +1,20 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-weight: normal;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.listing {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    gap: 1rem;
+}
+
+.listing li {
+    background-color: antiquewhite;
+}
