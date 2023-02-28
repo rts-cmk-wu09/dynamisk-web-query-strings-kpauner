@@ -7,14 +7,32 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+img {
+    width: 100%;
+}
+
 .listing {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 80rem;
+    padding: 0 2rem 0 2rem;
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
-    gap: 1rem;
+    grid-template-columns: repeat( auto-fit, minmax(296px, 1fr) );
+    gap: 8px;
 }
 
 .listing li {
     background-color: antiquewhite;
+}
+
+.listing li img {
+    height: 296px;
+    object-fit: cover;
+}
+
+.hello {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
 }
