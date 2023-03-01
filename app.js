@@ -1,56 +1,50 @@
 "use strict";
 
-let body = document.querySelector('body');
+const body = document.querySelector('body');
 
-let destList = document.createElement('ul');
+const destList = document.createElement('ul');
+destList.classList.add('listing');
 body.append(destList);
 
-const params = new URLSearchParams(window.location.search);
-const destinationId = params.get('id') ?? 'default';
+//add eventlistener load?
+let isFavorite = JSON.parse(localStorage.getItem('isFavorite'));
+
 
 fetch('./data/destinations.json')
-    .then(function(response){
-        return response.json(); // interpret it as json and Will try to convert it to a javascript object then return a new promise
-    })
+    .then(response => response.json())
     .then(data => {
-        let destinations = data.destinations;
+        const destinations = data.destinations;
         destinations.forEach(destination => {
-            let destItem = document.createElement('li');
-            destItem.innerHTML = `
-            <img src="img/${destination.image}" class="pre-img" alt="">
-            <div class="hello"><span class="material-icons">favorite</span><a href="destinations.html?id=${destination.id}">more</a></div>
-            `;
+            const destItem = document.createElement('li'); // list
             destList.append(destItem);
-            destList.classList.add('listing');
+            const destImg = document.createElement('img'); // img
+            destImg.setAttribute('src', `img/${destination.image}`); 
+            destItem.append(destImg);
+            const moreBar = document.createElement('div'); // more
+            moreBar.classList.add('more');
+            destItem.append(moreBar);
+            const favLink = document.createElement('a'); // fav
+            favLink.setAttribute('href', '#')
+            favLink.classList.add('favorite');
+            favLink.classList.toggle(isFavorite === true ? 'fa-solid' : 'fa-regular');
+            moreBar.append(favLink);
+            const destLink = document.createElement('a'); // destination link
+            destLink.setAttribute('href', `destinations.html?id=${destination.id}`)
+            destLink.classList.add('dest-link');
+            moreBar.append(destLink);
+            const destMore = document.createTextNode('more')
+            destLink.append(destMore);  
 
-        });
-    })
-    .then()
-    
-    // NEW FETCH REQUEST HERE?
-    fetch(`./data/${destinationId}.json`)
-        .then(response => {
-            return response.json()
+            // FAVORITE
+            favLink.addEventListener("click", e => {
+                e.preventDefault();
+                favLink.classList.toggle('fa-regular')
+                favLink.classList.toggle('fa-solid')
+                isFavorite = !isFavorite; 
+                localStorage.setItem('isFavorite', isFavorite); 
             })
-        .then(destinationData => {
-            body.innerHTML = `
-            <article class="dest">
-                <div class="dest-img">
-                    <a href="#" class="favorite"><span class="material-icons">favorite</span>favorit</a>
-                    <img src="img/${destinationData.image}" class="pre-img" alt="">
-                </div>
-                <div class="content">
-                    <a href="!#" class="category">${destinationData.destination}</a>
-                    <h1>${destinationData.title}</h1>
-                    <p class="subtitle">${destinationData.subtitle}</p>
-                    <p>${destinationData.text}</p>
-                    <h2>Facilities</h2>
-                    <ul>
-                        ${destinationData.facilities.map(facility => `<li>${facility}</li>`).join('')}
-                    </ul>
-                </div>
-            </article>
-            `;
-            console.log(URLSearchParams)
-        })
-        .catch(error => console.error(error));
+        });         
+    })
+    .catch(error => console.error(error));
+
+

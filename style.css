@@ -46,11 +46,29 @@ img {
     object-fit: cover;
 }
 
-.hello {
+.more {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+}
+
+.favorite {
+    height: 24px;
+}
+
+.favorite > svg {
+    margin-right: 0.3rem;
+}
+
+.fa-regular {
+    background-image: url(icons/heart-regular.svg);
+    width: 24px;
+}
+
+.fa-solid {
+    background-image: url(icons/heart-solid.svg);
+    width: 24px;
 }
 
 .dest {
