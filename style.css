@@ -61,6 +61,10 @@ img {
     margin-right: 0.3rem;
 }
 
+.fa-solid, .fa-solid {
+    background-repeat: no-repeat;
+}
+
 .fa-regular {
     background-image: url(icons/heart-regular.svg);
     width: 24px;
@@ -86,7 +90,7 @@ img {
     position: relative;
 }
 
-.dest-img a {
+.favcontainer {
     position: absolute;
     right: 1rem;
     top:1rem;
@@ -97,16 +101,16 @@ img {
     background-color: rgba(240, 248, 255, 0.3);
     padding: 0.4rem;
     border-radius: 4px;
+    display: block;
+    width: 110px;
+}
+
+.favcontainer > a {
     display: flex;
     align-items: center;
-}
-
-.dest-img a:hover {
-    background-color: rgba(240, 248, 255, 0.5);
-}
-
-.dest-img span {
-    margin-right: 0.3rem;
+    padding: 0 0 0 2rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .content {
