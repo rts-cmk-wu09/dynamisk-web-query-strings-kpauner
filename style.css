@@ -1,0 +1,143 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-weight: normal;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+/* TYPOGRAPHY */
+
+p {
+    padding:0 0 1rem 0;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.6rem 0;
+}
+
+img {
+    width: 100%;
+}
+
+.listing {
+    margin: 0 auto;
+    max-width: 80rem;
+    padding: 0 2rem 0 2rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(296px, 1fr) );
+    gap: 8px;
+}
+
+.listing li {
+    background-color: antiquewhite;
+}
+
+.listing li img {
+    height: 296px;
+    object-fit: cover;
+}
+
+.more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.favorite {
+    height: 24px;
+}
+
+.favorite > svg {
+    margin-right: 0.3rem;
+}
+
+.fa-solid, .fa-solid {
+    background-repeat: no-repeat;
+}
+
+.fa-regular {
+    background-image: url(icons/heart-regular.svg);
+    width: 24px;
+}
+
+.fa-solid {
+    background-image: url(icons/heart-solid.svg);
+    width: 24px;
+}
+
+.dest {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dest div {
+    flex: 1;
+    object-fit: cover;
+    min-width: 325px;
+}
+
+.dest-img {
+    position: relative;
+}
+
+.favcontainer {
+    position: absolute;
+    right: 1rem;
+    top:1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
+    background-color: rgba(240, 248, 255, 0.3);
+    padding: 0.4rem;
+    border-radius: 4px;
+    display: block;
+    width: 110px;
+}
+
+.favcontainer > a {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 2rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.content > h1 {
+    text-align: center;
+    padding: 0 0 0.6rem 0;
+}
+
+.content ul li {
+    list-style:disc inside;
+}
+
+.subtitle {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.category {
+    display: block;
+    text-align: center;
+    padding: 0.6rem;
+    text-transform: uppercase;
+}
